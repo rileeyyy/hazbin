@@ -32,6 +32,17 @@
     border-radius: 5px;
     color: #fff;
   }
+ .skip {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #d8564f;
+ }
 </style>
 </head>
 <body>
@@ -44,8 +55,10 @@
     Your browser does not support the audio element.
   </audio>
    <br>
-  <button class="button" onclick="skipSong()">Skip Song</button>
+  <button class="skip" onclick="skipSong()">Skip Song</button>
   <br>
+  <button class="button" onclick="playAudio('alastorsreprise.mp3')">Inside Of Every Demon Is A Lost Cause (Alastor's Reprise)</button>
+  <button class="button" onclick="playAudio('insideofeverydemon.mp3')">Inside Of Every Demon Is A Rainbow</button>
   <button class="button" onclick="playAudio('happydayinhell.mp3')">Happy Day In Hell</button>
   <button class="button" onclick="playAudio('hellisforever.mp3')">Hell Is Forever</button>
   <button class="button" onclick="playAudio('stayedgone.mp3')">Stayed Gone</button>
@@ -66,7 +79,7 @@
 
 <script>
   var audioPlayer = document.getElementById('audioPlayer');
-  var songs = ['happydayinhell.mp3', 'hellisforever.mp3', 'stayedgone.mp3', 'itstartswithsorry.mp3', 'respectless.mp3', 'whatevertakes.mp3', 'poison.mp3', 'loserbaby.mp3', 'hellsgreatestdad.mp3', 'morethananything.mp3', 'welcometoheaven.mp3', 'youdidntknow.mp3', 'outforlove.mp3', 'readyforthis.mp3', 'morethananythingreprise.mp3', 'finale.mp3'];
+  var songs = ['alastorsreprise.mp3', 'insideofeverydemon.mp3', 'happydayinhell.mp3', 'hellisforever.mp3', 'stayedgone.mp3', 'itstartswithsorry.mp3', 'respectless.mp3', 'whatevertakes.mp3', 'poison.mp3', 'loserbaby.mp3', 'hellsgreatestdad.mp3', 'morethananything.mp3', 'welcometoheaven.mp3', 'youdidntknow.mp3', 'outforlove.mp3', 'readyforthis.mp3', 'morethananythingreprise.mp3', 'finale.mp3'];
   var currentSongIndex = 0;
 
   function playAudio(src) {
