@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hazbin Playlist</title>
+<style>
+  body {
+    color: #FF6961;
+    background-image: url('pattern.jpeg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    text-align: center;
+  }
+
+  .button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color:  #FF6961; /* Light red */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>The Hazbin Hotel Song Playlist</h1>
+  <h3>a website by <a href=https://rileeyyy.github.io>riley</a></h3>
+  <br>
+  <audio id="audioPlayer" controls autoplay onended="playNext()">
+    Your browser does not support the audio element.
+  </audio>
+   <br>
+  <button class="button" onclick="skipSong()">Skip Song</button>
+  <br>
+  <button class="button" onclick="playAudio('happydayinhell.mp3')">Happy Day In Hell</button>
+  <button class="button" onclick="playAudio('hellisforever.mp3')">Hell Is Forever</button>
+  <button class="button" onclick="playAudio('stayedgone.mp3')">Stayed Gone</button>
+  <button class="button" onclick="playAudio('itstartswithsorry.mp3')">It Starts With Sorry</button>
+  <button class="button" onclick="playAudio('respectless.mp3')">Respectless</button>
+  <button class="button" onclick="playAudio('whatevertakes.mp3')">Whatever It Takes</button>
+  <button class="button" onclick="playAudio('poison.mp3')">Poison</button>
+  <button class="button" onclick="playAudio('loserbaby.mp3')">Loser, Baby</button>
+  <button class="button" onclick="playAudio('hellsgreatestdad.mp3')">Hells Greatest Dad</button>
+  <button class="button" onclick="playAudio('morethananything.mp3')">More Than Anything</button>
+  <button class="button" onclick="playAudio('welcometoheaven.mp3')">Welcome To Heaven</button>
+  <button class="button" onclick="playAudio('youdidntknow.mp3')">You Didnt Know</button>
+  <button class="button" onclick="playAudio('outforlove.mp3')">Out For Love</button>
+  <button class="button" onclick="playAudio('readyforthis.mp3')">Ready For This</button>
+  <button class="button" onclick="playAudio('morethananythingreprise.mp3')">More Than Anything (Reprise)</button>
+  <button class="button" onclick="playAudio('finale.mp3')">Finale</button>
+</div>
+
+<script>
+  var audioPlayer = document.getElementById('audioPlayer');
+  var songs = ['happydayinhell.mp3', 'hellisforever.mp3', 'stayedgone.mp3', 'itstartswithsorry.mp3', 'respectless.mp3', 'whatevertakes.mp3', 'poison.mp3', 'loserbaby.mp3', 'hellsgreatestdad.mp3', 'morethananything.mp3', 'welcometoheaven.mp3', 'youdidntknow.mp3', 'outforlove.mp3', 'readyforthis.mp3', 'morethananythingreprise.mp3', 'finale.mp3'];
+  var currentSongIndex = 0;
+
+  function playAudio(src) {
+    audioPlayer.src = src;
+    audioPlayer.play();
+  }
+
+  function playNext() {
+    currentSongIndex++;
+    if (currentSongIndex >= songs.length) {
+      currentSongIndex = 0; // Restart from the beginning if all songs have been played
+    }
+    playAudio(songs[currentSongIndex]);
+  }
+
+  function skipSong() {
+    playNext(); // Just call the function to move to the next song
+  }
+</script>
+
+</body>
+</html>
