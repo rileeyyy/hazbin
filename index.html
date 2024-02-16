@@ -56,6 +56,7 @@
     Your browser does not support the audio element.
   </audio>
    <br>
+  <button class="skip" onclick="playPrevious()">Previous Song</button>
   <button class="skip" onclick="skipSong()">Skip Song</button>
   <br>
   <button class="button" onclick="playAudio('insideofeverydemon.mp3')">Inside Of Every Demon Is A Rainbow</button>
@@ -109,6 +110,13 @@
 
   function updateCurrentlyPlaying(songName) {
     document.getElementById('currentlyPlaying').textContent = "Currently Playing: " + songName;
+  }
+    function playPrevious() {
+    currentSongIndex--;
+    if (currentSongIndex < 0) {
+      currentSongIndex = songs.length - 1; // Go to the last song if at the beginning
+    }
+    playAudio(songs[currentSongIndex]);
   }
 </script>
 </body>
