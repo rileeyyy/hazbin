@@ -76,16 +76,20 @@
   <button class="button" onclick="playAudio('readyforthis.mp3')">Ready For This</button>
   <button class="button" onclick="playAudio('morethananythingreprise.mp3')">More Than Anything (Reprise)</button>
   <button class="button" onclick="playAudio('finale.mp3')">Finale</button>
+  <br>
+  <h3 id="currentlyPlaying">Currently Playing: </h3>
 </div>
 
 <script>
   var audioPlayer = document.getElementById('audioPlayer');
   var songs = ['insideofeverydemon.mp3', 'alastorsreprise.mp3', 'addict.mp3', 'happydayinhell.mp3', 'hellisforever.mp3', 'stayedgone.mp3', 'itstartswithsorry.mp3', 'respectless.mp3', 'whatevertakes.mp3', 'poison.mp3', 'loserbaby.mp3', 'hellsgreatestdad.mp3', 'morethananything.mp3', 'welcometoheaven.mp3', 'youdidntknow.mp3', 'outforlove.mp3', 'readyforthis.mp3', 'morethananythingreprise.mp3', 'finale.mp3'];
+  var songNames = ['Inside Of Every Demon Is A Rainbow', 'Inside Of Every Demon Is A Lost Cause (Alastor\'s Reprise)', 'ADDICT', 'Happy Day In Hell', 'Hell Is Forever', 'Stayed Gone', 'It Starts With Sorry', 'Respectless', 'Whatever It Takes', 'Poison', 'Loser, Baby', 'Hells Greatest Dad', 'More Than Anything', 'Welcome To Heaven', 'You Didnt Know', 'Out For Love', 'Ready For This', 'More Than Anything (Reprise)', 'Finale'];
   var currentSongIndex = 0;
 
   function playAudio(src) {
     audioPlayer.src = src;
     audioPlayer.play();
+    updateCurrentlyPlaying(songNames[songs.indexOf(src)]);
   }
 
   function playNext() {
@@ -97,6 +101,16 @@
   }
 
   function skipSong() {
-    playNext(); // Just call the function to move to the next song
+    currentSongIndex++;
+    if (currentSongIndex >= songs.length) {
+      currentSongIndex = 0; // Restart from the beginning if all songs have been played
+    }
+    playAudio(songs[currentSongIndex]);
+  }
+
+  function updateCurrentlyPlaying(songName) {
+    document.getElementById('currentlyPlaying').textContent = "Currently Playing: " + songName;
   }
 </script>
+</body>
+</html>
